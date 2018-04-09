@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Full',
   props: ['author', 'book'],
@@ -53,25 +52,28 @@ export default {
     },
   },
 };
-
 </script>
 
 <style lang="scss" scoped>
 .book {
   min-width: 220px;
   max-width: 400px;
+
   img {
     object-fit: cover;
     width: 100%;
     height: 520px;
   }
+
   border-left: 1px #eee solid;
   animation: fadein 0.6s;
 }
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
 .btn-close {
   float: right;
   margin-bottom: 5px;

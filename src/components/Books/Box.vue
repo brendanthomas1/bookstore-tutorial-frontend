@@ -9,15 +9,18 @@
 export default {
   name: 'Box',
   props: ['book'],
+
   data() {
     return {
       image:
       `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.book.title)}`,
     };
   },
+
   created() {
     this.pullImage();
   },
+
   methods: {
     async pullImage() {
       const response = await

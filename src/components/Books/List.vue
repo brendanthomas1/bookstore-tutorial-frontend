@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class='float-right'>
         <input type='text' name='search' v-model='search'
-         placeholder='Search...' class='form-control'
+               placeholder='Search...' class='form-control'
         />
       </div>
       <h1>Books by {{ author.name }}</h1>
@@ -11,7 +11,7 @@
     <div class='row'>
       <div class='row col'>
         <Box v-for='book in books' :author='author' :book='book' :key='book.id'
-           v-show='searchMatch(book.title)' v-on:click.native='setBook(book)'>
+             v-show='searchMatch(book.title)' v-on:click.native='setBook(book)'>
         </Box>
       </div>
       <Full :book='currentBook' v-if='currentBook' v-on:close='closeBook'>
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-
 import Box from './Box';
 import Full from './Full';
 
@@ -39,21 +38,21 @@ export default {
 
   created() {
     this.$http.get(`/authors/${this.author.id}/books`)
-      .then((request) => { this.books = request.data; })
-      .catch(() => { console.error('Error fetching data'); });
+        .then((request) => { this.books = request.data; })
+        .catch(() => { console.error('Error fetching data'); });
   },
 
   methods: {
+    closeBook() {
+      this.currentBook = null;
+    },
+
     searchMatch(bookTitle) {
       return bookTitle.toLowerCase().match(this.searchRegExp);
     },
 
     setBook(book) {
       this.currentBook = book;
-    },
-
-    closeBook() {
-      this.currentBook = null;
     },
   },
 
@@ -68,5 +67,4 @@ export default {
     Full,
   },
 };
-
 </script>

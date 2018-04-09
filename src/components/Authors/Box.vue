@@ -11,14 +11,17 @@
 export default {
   name: 'Box',
   props: ['author'],
+
   data() {
     return {
       image: `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.author.name)}`,
     };
   },
+
   created() {
     this.pullImage();
   },
+
   methods: {
     async pullImage() {
       const response = await fetch(`http://api.duckduckgo.com/?q=${encodeURIComponent(this.author.name)}&format=json&pretty=1`);

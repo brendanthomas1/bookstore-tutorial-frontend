@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import List from '@/components/Books/List';
 import Box from './Box';
 
@@ -34,6 +33,5 @@ export default {
     List,
   },
 };
-
 </script>
 

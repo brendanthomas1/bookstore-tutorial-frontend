@@ -19,16 +19,20 @@ import Foot from '@/components/Foot';
 
 export default {
   name: 'App',
+
   components: {
     Navbar,
     Foot,
   },
+
   computed: {
     ...mapGetters({ currentUser: 'currentUser' }),
   },
+
   created() {
     this.checkCurrentLogin();
   },
+
   updated() {
     this.checkCurrentLogin();
   },
@@ -47,16 +51,18 @@ export default {
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
+
 body {
   background: #272D2D;
   color: #edf5fc;
 }
+
 .btn-green {
   background: #23CE6B;
   color: #fff;
 }
+
 .btn-green:hover {
   background: #1daf5a;
 }
-
 </style>

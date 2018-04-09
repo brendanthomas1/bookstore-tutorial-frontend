@@ -16,6 +16,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'Navbar',
+
   computed: {
     ...mapGetters({ currentUser: 'currentUser' }),
   },
@@ -25,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 .bg-bookstore {
   background: #a39ba8 !important;
+  margin-bottom: 50px;
 }
 
 .navbar-brand {

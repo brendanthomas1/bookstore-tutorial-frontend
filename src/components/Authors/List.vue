@@ -21,30 +21,36 @@ import Box from './Box';
 
 export default {
   name: 'List',
+
   data() {
     return {
       search: '',
       authors: [],
     };
   },
+
   created() {
     this.$http.get('/authors')
-      .then(request => this.buildAuthorList(request.data))
-      .catch(error => console.error(error.message));
+        .then(request => this.buildAuthorList(request.data))
+        .catch(error => console.error(error.message));
   },
+
   methods: {
     buildAuthorList(data) {
       this.authors = data;
     },
+
     searchMatch(authorName) {
       return authorName.toLowerCase().match(this.searchRegExp);
     },
   },
+
   computed: {
     searchRegExp() {
       return new RegExp(`(.*)${this.search}(.*)`);
     },
   },
+
   components: {
     Box,
   },
