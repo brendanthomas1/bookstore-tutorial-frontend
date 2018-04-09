@@ -3,8 +3,8 @@
     <div class="page-header">
       <div class="float-right">
         <input type="text" name="search" v-model="search"
-               placeholder="Search..." class="form-control">
-        </input>
+               placeholder="Search..." class="form-control"
+        />
       </div>
       <h1>All Authors</h1>
     </div>
@@ -17,20 +17,20 @@
 </template>
 
 <script>
-import Box from './Box'
+import Box from './Box';
 
 export default {
   name: 'List',
   data() {
     return {
       search: '',
-      authors: []
-    }
+      authors: [],
+    };
   },
   created() {
     this.$http.get('/authors')
-        .then(request => this.buildAuthorList(request.data))
-        .catch((error) => console.error(error.message));
+      .then(request => this.buildAuthorList(request.data))
+      .catch(error => console.error(error.message));
   },
   methods: {
     buildAuthorList(data) {
@@ -38,15 +38,15 @@ export default {
     },
     searchMatch(authorName) {
       return authorName.toLowerCase().match(this.searchRegExp);
-    }
+    },
   },
   computed: {
     searchRegExp() {
       return new RegExp(`(.*)${this.search}(.*)`);
-    }
+    },
   },
   components: {
-    Box
-  }
-}
+    Box,
+  },
+};
 </script>

@@ -13,70 +13,70 @@
              class="form-control" placeholder="Password" required>
 
       <button class="btn btn-green btn-block" type="submit">
-				Sign in
-			</button>
+        Sign in
+      </button>
     </form>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Login',
-  data () {
+  data() {
     return {
       email: '',
       password: '',
-      error: false
-    }
+      error: false,
+    };
   },
 
-  created () {
-    this.checkCurrentLogin()
+  created() {
+    this.checkCurrentLogin();
   },
 
-  updated () {
-    this.checkCurrentLogin()
+  updated() {
+    this.checkCurrentLogin();
   },
 
   computed: {
-    ...mapGetters({ currentUser: 'currentUser' })
+    ...mapGetters({ currentUser: 'currentUser' }),
   },
 
   methods: {
-    checkCurrentLogin () {
+    checkCurrentLogin() {
       if (this.currentUser) {
-        this.$router.replace(this.$route.query.redirect || '/authors')
+        this.$router.replace(this.$route.query.redirect || '/authors');
       }
     },
 
-    login () {
+    login() {
       this.$http.post('/auth', { user: this.email, password: this.password })
         .then(request => this.loginSuccessful(request))
-        .catch(() => this.loginFailed())
+        .catch(() => this.loginFailed());
     },
 
-    loginFailed () {
-      this.error = 'Login Failed'
-      this.$store.dispatch('logout')
-      delete localStorage.token
+    loginFailed() {
+      this.error = 'Login Failed';
+      this.$store.dispatch('logout');
+      delete localStorage.token;
     },
 
-    loginSuccessful (req) {
+    loginSuccessful(req) {
       if (!req.data.token) {
-        this.loginFailed()
-        return
+        this.loginFailed();
+        return;
       }
 
-      this.error = false
-      localStorage.token = req.data.token
-      this.$store.dispatch('login')
+      this.error = false;
+      localStorage.token = req.data.token;
+      this.$store.dispatch('login');
 
-      this.$router.replace(this.$route.query.redirect || '/authors')
+      this.$router.replace(this.$route.query.redirect || '/authors');
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang='css'>

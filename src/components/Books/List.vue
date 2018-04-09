@@ -3,8 +3,8 @@
     <div class="page-header">
       <div class='float-right'>
         <input type='text' name='search' v-model='search'
-         placeholder='Search...' class='form-control'>
-        </input>
+         placeholder='Search...' class='form-control'
+        />
       </div>
       <h1>Books by {{ author.name }}</h1>
     </div>
@@ -22,8 +22,8 @@
 
 <script>
 
-import Box from './Box'
-import Full from './Full'
+import Box from './Box';
+import Full from './Full';
 
 export default {
   name: 'List',
@@ -33,14 +33,14 @@ export default {
     return {
       search: '',
       books: [],
-      currentBook: null
-    }
+      currentBook: null,
+    };
   },
 
   created() {
     this.$http.get(`/authors/${this.author.id}/books`)
-      .then(request => { this.books = request.data })
-      .catch(() => { console.error('Error fetching data') });
+      .then((request) => { this.books = request.data; })
+      .catch(() => { console.error('Error fetching data'); });
   },
 
   methods: {
@@ -54,19 +54,19 @@ export default {
 
     closeBook() {
       this.currentBook = null;
-    }
+    },
   },
 
   computed: {
     searchRegExp() {
       return new RegExp(`(.*)${this.search}(.*)`);
-    }
+    },
   },
 
   components: {
     Box,
-    Full
-  }
-}
+    Full,
+  },
+};
 
 </script>

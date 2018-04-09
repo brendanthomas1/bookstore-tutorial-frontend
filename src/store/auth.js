@@ -8,16 +8,16 @@ const state = {
 };
 
 const mutations = {
-  [MutationTypes.LOGIN](state) {
+  [MutationTypes.LOGIN]() {
     state.user = User.from(localStorage.token);
   },
-  [MutationTypes.LOGOUT](state) {
+  [MutationTypes.LOGOUT]() {
     state.user = null;
   },
 };
 
 const getters = {
-  currentUser(state) {
+  currentUser() {
     return state.user;
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="col author text-center">
     <router-link :to="{ name: 'Author', params: { id: author.id } }">
-      <img :src="image"></img>
+      <img :src="image" />
       <p>{{ author.name }}</p>
     </router-link>
   </div>
@@ -13,8 +13,8 @@ export default {
   props: ['author'],
   data() {
     return {
-      image: `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.author.name)}`
-    }
+      image: `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.author.name)}`,
+    };
   },
   created() {
     this.pullImage();
@@ -25,10 +25,10 @@ export default {
       const json = await response.json();
       if (json.Image) {
         this.image = json.Image;
-      };
-    }
-  }
-}
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

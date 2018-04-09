@@ -13,33 +13,33 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Navbar from '@/components/Navbar'
-import Foot from '@/components/Foot'
+import { mapGetters } from 'vuex';
+import Navbar from '@/components/Navbar';
+import Foot from '@/components/Foot';
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Foot
+    Foot,
   },
   computed: {
-    ...mapGetters({ currentUser: 'currentUser' })
+    ...mapGetters({ currentUser: 'currentUser' }),
   },
-  created () {
+  created() {
     this.checkCurrentLogin();
   },
-  updated () {
+  updated() {
     this.checkCurrentLogin();
   },
 
   methods: {
     checkCurrentLogin() {
       if (!localStorage.token && this.$route.path !== '/') {
-        this.$router.push('/?redirect=' + this.$route.path)
+        this.$router.push(`/?redirect=${this.$route.path}`);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -52,11 +52,11 @@ body {
   color: #edf5fc;
 }
 .btn-green {
-	background: #23CE6B;
+  background: #23CE6B;
   color: #fff;
 }
 .btn-green:hover {
-	background: #1daf5a;
+  background: #1daf5a;
 }
 
 </style>

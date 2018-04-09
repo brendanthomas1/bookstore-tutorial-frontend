@@ -11,29 +11,29 @@
 
 <script>
 
-import Box from './Box'
-import List from '@/components/Books/List'
+import List from '@/components/Books/List';
+import Box from './Box';
 
 export default {
   name: 'Single',
 
   data() {
     return {
-      author: null
-    }
+      author: null,
+    };
   },
 
   created() {
     this.$http.get(`/authors/${this.$route.params.id}`)
-        .then(request => { this.author = request.data })
-        .catch(() => { console.error('Problem fetching data') });
+      .then((request) => { this.author = request.data; })
+      .catch(() => { console.error('Problem fetching data'); });
   },
 
   components: {
     Box,
-    List
-  }
-}
+    List,
+  },
+};
 
 </script>
 

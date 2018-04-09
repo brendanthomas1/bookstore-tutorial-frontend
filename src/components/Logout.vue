@@ -1,10 +1,10 @@
 <script>
 export default {
   name: 'Logout',
-  created () {
+  created() {
     delete localStorage.token;
     this.$store.dispatch('logout');
     this.$router.push('/');
-  }
-}
+  },
+};
 </script>

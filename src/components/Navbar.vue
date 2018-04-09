@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Navbar',
   computed: {
-    ...mapGetters({ currentUser: 'currentUser' })
-  }
-}
+    ...mapGetters({ currentUser: 'currentUser' }),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

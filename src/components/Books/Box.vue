@@ -1,6 +1,6 @@
 <template>
   <div class="col book text-center">
-    <img :src="image"></img>
+    <img :src="image" />
     <p>{{ book.title }}</p>
   </div>
 </template>
@@ -12,8 +12,8 @@ export default {
   data() {
     return {
       image:
-      `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.book.title)}`
-    }
+      `http://via.placeholder.com/200x200?text=${encodeURIComponent(this.book.title)}`,
+    };
   },
   created() {
     this.pullImage();
@@ -21,14 +21,14 @@ export default {
   methods: {
     async pullImage() {
       const response = await
-        fetch(`http://api.duckduckgo.com/?q=${encodeURIComponent(this.book.title)}&format=json&pretty=1`);
+      fetch(`http://api.duckduckgo.com/?q=${encodeURIComponent(this.book.title)}&format=json&pretty=1`);
       const json = await response.json();
       if (json.Image) {
         this.image = json.Image;
-      };
-    }
-  }
-}
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
