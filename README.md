@@ -1,6 +1,12 @@
 # bookstore-tutorial-frontend
 
-> A Vue.js project
+Vue frontend of a Vue and Rails app to serve authors and books. Based off of the
+series of tutorials from [this
+blog](https://paweljw.github.io/2017/07/rails-5.1-api-with-vue.js-frontend-part-0-stack-choices/)
+
+Run with the [backend rails
+api](https://github.com/brendanthomas1/bookstore-tutorial-backend) to develop
+locally
 
 ## Build Setup
 
