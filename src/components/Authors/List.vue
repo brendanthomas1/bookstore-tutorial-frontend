@@ -31,8 +31,8 @@ export default {
 
   created() {
     this.$http.get('/authors')
-        .then(request => this.buildAuthorList(request.data))
-        .catch(error => console.error(error.message));
+      .then(request => this.buildAuthorList(request.data))
+      .catch(() => null);
   },
 
   methods: {

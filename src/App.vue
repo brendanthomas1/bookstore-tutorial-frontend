@@ -26,7 +26,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters({ currentUser: 'currentUser' }),
+    ...mapGetters(['currentUser']),
   },
 
   created() {
@@ -39,7 +39,7 @@ export default {
 
   methods: {
     checkCurrentLogin() {
-      if (!localStorage.token && this.$route.path !== '/') {
+      if (!this.currentUser && this.$route.path !== '/') {
         this.$router.push(`/?redirect=${this.$route.path}`);
       }
     },

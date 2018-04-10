@@ -38,8 +38,8 @@ export default {
 
   created() {
     this.$http.get(`/authors/${this.author.id}/books`)
-        .then((request) => { this.books = request.data; })
-        .catch(() => { console.error('Error fetching data'); });
+      .then((request) => { this.books = request.data; })
+      .catch(() => null);
   },
 
   methods: {

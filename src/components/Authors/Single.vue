@@ -25,7 +25,7 @@ export default {
   created() {
     this.$http.get(`/authors/${this.$route.params.id}`)
       .then((request) => { this.author = request.data; })
-      .catch(() => { console.error('Problem fetching data'); });
+      .catch(() => null);
   },
 
   components: {

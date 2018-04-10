@@ -1,5 +1,6 @@
 /* global localStorage */
 
+import Vue from 'vue';
 import User from '@/models/User';
 import * as MutationTypes from '@/store/mutationTypes';
 
@@ -9,10 +10,10 @@ const state = {
 
 const mutations = {
   [MutationTypes.LOGIN]() {
-    state.user = User.from(localStorage.token);
+    Vue.set(state, 'user', User.from(localStorage.token));
   },
   [MutationTypes.LOGOUT]() {
-    state.user = null;
+    Vue.set(state, 'user', null);
   },
 };
 
